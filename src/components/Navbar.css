@@ -1,0 +1,119 @@
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 1000;
+
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Logo */
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #155fe7;
+  font-weight: 600;
+}
+
+/* Menu */
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header nav a {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 550;
+  font-size: 1rem;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #155fe7;
+  transition: width 0.3s ease;
+}
+
+header nav a:hover {
+  color: #155fe7;
+}
+
+header nav a:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu */
+header .menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 95%;
+    top: 0;
+    border: none;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  header nav.active {
+    max-height: 400px;
+    opacity: 1;
+    padding: 1.5rem 0;
+  }
+
+  header .menu-icon {
+    display: flex;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #155fe7;
+  }
+
+  header .btn {
+    width: 90%;
+    justify-content: center;
+  }
+}
